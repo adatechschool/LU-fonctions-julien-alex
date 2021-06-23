@@ -5,24 +5,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="shortcut icon" href="jeu-du-pendu.svg" type="image/x-icon">
-<script src="script.js"></script>
+
     <title>Pendu AAJ™</title>
 </head>
 <body>
     <h1 style="text-align: center;color: orange;">Pendu</h1>
     <hr style="width: 20%;">
-    <div class="center">
-    <img src="data:image/png;base64,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" alt="">
-</div>
-<div id="pendu_word">
 
+<div id="pendu_word"></div>
 
+<div class="container">
+  <img src="512x512bb.jpg" id="pendu"/>
 </div>
+
 </body>
 <style>
-    .center{
+    .container{
         display: flex;
-        justify-content: center;
+        height:256px;
+        margin-top: 15px;
     }
+
+    #pendu {
+      object-fit: cover;
+      width: 256px;
+      height: 0px;
+      margin-top: auto;
+      object-position: left bottom;
+    }
+
+    #pendu_word {
+        font-size: 4em;
+    }
+
+
 </style>
+<script src="script.js"></script>
 </html>
