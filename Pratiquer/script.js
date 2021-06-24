@@ -4,7 +4,7 @@ let typedLetter = "";
 
 // Tir au hasard un mot d'ans un tableau et renvoit ce mot
 function chooseWord(){
-    let tabWord = ["alex"];
+    let tabWord = ["alex", "julien", "adrien"];
     let numRamdom = Math.floor(Math.random() * tabWord.length);
     let motRandom = tabWord[numRamdom];
     return motRandom;
@@ -23,7 +23,7 @@ function replaceCharacters(word,letters){
     return wordInProgress;
 }    
 
-// demande à l'utilisateur de saisir une lettre. recommance tant que la saisie n'est pas une lettre en minuscule, ou une lettre déjà saisies (tableau des lettres déjà transmises passé en paramètre dans pastLetters)
+// demande à l'utilisateur de saisir une lettre. recommence tant que la saisie n'est pas une lettre en minuscule, ou une lettre déjà saisies (tableau des lettres déjà transmises passé en paramètre dans pastLetters)
 function getLoneDifferentLetter(pastLetters){
     let alphabet = "abcdefghijklmnopqrstuvwxyz";
     let letterInput = prompt("Enter a letter : ");
@@ -37,7 +37,6 @@ function getLoneDifferentLetter(pastLetters){
 
 // renvoie true si candidateLetter est danns le mot chosenWord. false sinon
 function letterIsInWord(candidateLetter, chosenWord){
-
     if(chosenWord.indexOf(candidateLetter) == -1){
         return  false;
     }else{
@@ -71,7 +70,6 @@ function jeuDuPendu(){
    let numbOfFails = 0;
    while(numbOfFails < 8 && wordInProgress.indexOf("*") != -1){
         // affiche le mot mystère en affichant des * pour les lettres non devinées 
-        wordInProgress = replaceCharacters(guessing_a_word,typedLetter);
         penduWord.textContent = wordInProgress;
 
        // demande à l'utlisateur de choisir une lettre et on lui demande tant que ce n'est pas une lettre ou déjas saisi 
@@ -88,7 +86,8 @@ function jeuDuPendu(){
                 } 
             //affichage sur la page
             imagePendu.style.height = (32*numbOfFails)+"px"; //************************ on augmente la taille de l'image
-            } 
+            }
+        wordInProgress = replaceCharacters(guessing_a_word,typedLetter); 
     }
 }
 jeuDuPendu();
